@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NotificationExercise</string>
+    <string name="message">Message</string>
+    <string name="about_me">About Me</string>
+    <string name="profile_description">
+        As known as Nanda, I was born in Magelang on August 21, 1998. I am the first of three children who have completed education at Computer Engineering FTEIC Institut Teknologi Sepuluh Nopember Surabaya.
+        I am interested in the field of digital technology, especially in the fields of IT Project Management, User-Oriented Product Development, and Design System Analysis. Currently, I am exploring Mobile Programming with Android Studio.
+    </string>
+    <string name="profile_name" translatable="false">Fernanda Daymara Hasna</string>
+    <string name="tab" translatable="false">\t\t\t\t\t\t</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="biography">Biography</string>
+    <string name="find_me">Find Me</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="github" translatable="false">Github</string>
+    <string name="whatsapp" translatable="false">Whatsapp</string>
+    <string name="dicoding" translatable="false">Dicoding</string>
+    <string name="welcome_text">Hello Guys!</string>
+    <string name="title">Title</string>
+    <string name="send">Send</string>
+</resources>

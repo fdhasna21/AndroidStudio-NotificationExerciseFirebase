@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activity.AboutMeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:layout_marginVertical="@dimen/layout_padding"
+        android:divider="@drawable/divider_view_padding">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/profile_photo"
+            android:contentDescription="@string/profile_picture" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_name"
+            android:textAlignment="center"
+            style="?attr/textAppearanceSubtitle1"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/about_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textAlignment="center"
+            style="?attr/textAppearanceSubtitle1"
+            android:layout_marginTop="-4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/biography"
+            style="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="@dimen/layout_padding"
+            android:background="@color/purple_200"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="1.5dp"
+            android:text="@string/profile_description"
+            android:layout_marginHorizontal="@dimen/layout_padding"
+            android:justificationMode="inter_word"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/find_me"
+            style="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="@dimen/layout_padding"
+            android:background="@color/purple_200"
+            android:textColor="@color/white"/>
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/menu_about"
+            android:outlineProvider="none"
+            android:layout_marginTop="-6dp"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

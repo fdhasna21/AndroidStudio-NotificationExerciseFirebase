@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/drawable/divider_view_padding.xml" value="0.3828125" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/drawable/ic_about_me.xml" value="0.3828125" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_about_me.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_main.xml" value="0.16847826086956522" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_show_notification.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/menu/menu_about.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/menu/menu_about_credit.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
