@@ -1,36 +1,40 @@
-package com.tugas.notificationexercise.dataclass
+package com.tugas.notificationexercise.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
-import com.tugas.notificationexercise.activity.MainActivity
-import com.tugas.notificationexercise.databinding.ActivityShowNotificationBinding
+import com.tugas.notificationexercise.databinding.ActivityShowAnimalBinding
+import com.tugas.notificationexercise.dataclass.NotificationData
 import java.util.ArrayList
 
-class ShowNotificationActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityShowNotificationBinding
+class ShowAnimalActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityShowAnimalBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityShowNotificationBinding.inflate(layoutInflater)
+        binding = ActivityShowAnimalBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(false)
 
         val title = intent.getStringExtra("title")
         val message = intent.getStringExtra("message")
-        val from = intent.getStringExtra("from")
-        supportActionBar?.title = "Show Message From $from"
+        val data = intent.getParcelableExtra<NotificationData>("data")
+        supportActionBar?.title = "Show Animal"
 
-        binding.layout.apply {
-            mainActivityButton.visibility = View.GONE
-            mainWelcome.visibility = View.GONE
+        binding.apply {
+            layout.mainActivityButton.visibility = View.GONE
+            layout.mainWelcome.visibility = View.GONE
+            layout.mainRadioGroup.visibility = View.GONE
+            layout.mainActivityDataInput.visibility = View.GONE
 
             val editableEditText : ArrayList<TextInputEditText> = arrayListOf(
-                mainTitle,
-                mainMessage
+                layout.mainTitle,
+                layout.mainMessage,
+                showAnimalName
             )
             editableEditText.forEach {
                 it.isCursorVisible = false
@@ -38,8 +42,12 @@ class ShowNotificationActivity : AppCompatActivity() {
                 it.isFocusableInTouchMode = false
             }
 
-            mainTitle.setText(title)
-            mainMessage.setText(message)
+            layout.mainTitle.setText(title)
+            layout.mainMessage.setText(message)
+            showAnimalName.setText(data?.dataAnimal?.name)
+//            Glide.with(this@ShowAnimalActivity)
+//                .load()
+//                .into(showAnimalPicture)
         }
     }
 

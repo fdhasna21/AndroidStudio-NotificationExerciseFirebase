@@ -13,8 +13,12 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.google.gson.Gson
 import com.tugas.notificationexercise.R
-import com.tugas.notificationexercise.dataclass.ShowNotificationActivity
+import com.tugas.notificationexercise.activity.ShowNotificationActivity
+import com.tugas.notificationexercise.activity.ShowAnimalActivity
+import com.tugas.notificationexercise.activity.ShowShapeActivity
+import com.tugas.notificationexercise.dataclass.NotificationData
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     companion object {
@@ -24,21 +28,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(rm: RemoteMessage) {
-        Log.i(TAG, "From : ${rm.from}")
+        Log.i(TAG, "size ${rm.data.size} ${rm.data}")
 
-        if(rm.data.isNotEmpty()){
-            val title = rm.data["title"]
-            val body = rm.data["body"]
-            showNotification(applicationContext, title, body, rm.from)
-        } else {
-            val title = rm.notification!!.title
-            val body = rm.notification!!.body
-            showNotification(applicationContext, title, body, rm.from)
-        }
-
-        rm.notification?.let{
-            Log.i(TAG, "Message : ${it.title} | ${it.body} ")
-        }
+        val title : String? = rm.notification!!.title
+        val body : String? = rm.notification!!.body
+        val data : String = rm.data.toString()
+        val dataMap = Gson().fromJson<NotificationData>(data, NotificationData::class.java)
+        showNotification(title, body, dataMap)
     }
 
     override fun onMessageSent(p0: String) {
@@ -51,22 +47,27 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         Log.i(TAG, "Refreshed token : $p0")
     }
 
-    private fun showNotification(context: Context, title:String?, message:String?, from:String?) {
-        val intent = Intent(context, ShowNotificationActivity::class.java).apply {
-            data = Uri.parse("custom://" + System.currentTimeMillis())
-            action = "actionString" + System.currentTimeMillis()
-            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
-            putExtra("title" ,title)
-            putExtra("message", message)
-            putExtra("from", from)
+    private fun showNotification(title:String?, message:String?, dataMap:NotificationData?){
+        val intent = Intent(baseContext, when(dataMap?.activityReceiver){
+            "ShowAnimalActivity" -> ShowAnimalActivity::class.java
+            "ShowShapeActivity" -> ShowShapeActivity::class.java
+            else -> ShowNotificationActivity::class.java
+        }).apply {
+                data = Uri.parse("custom://" + System.currentTimeMillis())
+                action = "actionString" + System.currentTimeMillis()
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                putExtra("title", title)
+                putExtra("message", message)
+                putExtra("data", dataMap)
         }
+        Log.i(TAG, "${intent.javaClass}")
 
-        val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(baseContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
+        val notificationManager = baseContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val notification : Notification
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            notification = NotificationCompat.Builder(context, CHANNEL_ID)
+            notification = NotificationCompat.Builder(baseContext, CHANNEL_ID)
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle(title)
@@ -80,7 +81,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val notificationChannel = NotificationChannel(CHANNEL_ID, title, NotificationManager.IMPORTANCE_DEFAULT)
             notificationManager.createNotificationChannel(notificationChannel)
         } else {
-            notification = NotificationCompat.Builder(context)
+            notification = NotificationCompat.Builder(baseContext)
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle(title)

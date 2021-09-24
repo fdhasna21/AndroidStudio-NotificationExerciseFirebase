@@ -16,6 +16,7 @@
         android:divider="@drawable/divider_view_padding">
 
         <ImageView
+            android:id="@+id/profile_picture"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
@@ -52,6 +53,7 @@
             android:textColor="@color/white"/>
 
         <TextView
+            android:id="@+id/about_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="1.5dp"
@@ -72,6 +74,7 @@
             android:textColor="@color/white"/>
 
         <com.google.android.material.navigation.NavigationView
+            android:id="@+id/about_find_me"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_about"

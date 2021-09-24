@@ -6,8 +6,10 @@
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/drawable/divider_view_padding.xml" value="0.3828125" />
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/drawable/ic_about_me.xml" value="0.3828125" />
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_about_me.xml" value="0.36666666666666664" />
-        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_main.xml" value="0.16847826086956522" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_show_animal.xml" value="0.19114583333333332" />
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_show_notification.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/layout/activity_show_shape.xml" value="0.19114583333333332" />
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/menu/menu_about.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudio/AndroidStudio_NotificationExercise/app/src/main/res/menu/menu_about_credit.xml" value="0.36666666666666664" />
